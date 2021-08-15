@@ -1,10 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+import './MainScreen.css';
+
 function MainScreen() {
 	return (
 		<div id="main-screen-container" className="full-screen-container">
 			<div id="main-screen-inner">
+				<div className="customs-house-logo"></div>
 				<h1>Customs</h1>
 				<h2>House</h2>
 				<ul id="main-links-list">

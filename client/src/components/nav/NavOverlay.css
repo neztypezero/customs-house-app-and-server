@@ -1,0 +1,137 @@
+#nav-overlay-container {
+	transition:all 1s;
+}
+
+#nav-overlay-container[data-location="/"] {
+	opacity:0;
+	pointer-events:none;
+}
+
+#nav-overlay-container > #nav-overlay-inner > .header-container,
+#nav-overlay-container > #nav-overlay-inner > .bottom-nav-container {
+	transition:all 1s;
+	background-color:#fff;
+	padding:1em;
+	box-sizing:border-box;
+}
+
+#nav-overlay-container[data-location="/"] > #nav-overlay-inner > .header-container {
+	transform:translate(0, -100%);
+}
+
+#nav-overlay-inner > .header-container {
+	position:absolute;
+	left:0;
+	top:0;
+	width:100%;
+}
+
+#nav-overlay-inner > .header-container > * {
+	flex:1 1 1px;
+}
+
+#nav-overlay-inner > .header-container {
+	display:flex;
+	justify-content:space-between;
+}
+
+#nav-overlay-inner > .header-container > .customs-house-logo {
+	margin-top:auto;
+}
+
+#nav-overlay-inner > .header-container > .customs-house-logo > a {
+	display:block;
+	height:1.1em;
+	width:1.8em;
+	background-image:url('../../img/icons/CH_header_logo.png');
+	background-position:center bottom;
+	background-size:100% auto;
+	background-repeat:no-repeat;
+}
+
+#nav-overlay-inner > .header-container > .customs-house-text {
+	text-align:center;
+	color: #10273b;
+	font-size:0.25em;
+}
+
+#nav-overlay-inner > .header-container > .customs-house-text::before {
+	content:'CUSTOMS';
+	display:block;
+	font-size: 3.5em;
+	letter-spacing: 0.15em;
+	line-height: 1.2em;
+	font-weight:bold;
+}
+
+#nav-overlay-inner > .header-container > .customs-house-text::after {
+	content:'HOUSE';
+	display:block;
+	font-family: Knockout;
+	font-size:2.25em;
+	line-height:1.2em;
+	font-weight:bold;
+}
+
+#nav-overlay-inner > .header-container > .location-text {
+	font-size:0.6em;
+	margin-top:auto;
+	text-align:right;
+}
+
+#nav-overlay-inner > .header-container > .location-text[data-location^="/gallery"]::before {
+	content:'GALLERY';
+}
+
+#nav-overlay-inner > .header-container > .location-text[data-location^="/floorplans"]::before {
+	content:'FLOORPLANS';
+}
+
+#nav-overlay-inner > .header-container > .location-text[data-location^="/view"]::before {
+	content:'VIEW';
+}
+
+#nav-overlay-inner > .header-container > .location-text[data-location^="/location"]::before {
+	content:'LOCATION';
+}
+
+#nav-overlay-inner > .bottom-nav-container {
+	position:absolute;
+	left:0;
+	bottom:0;
+	width:100%;
+}
+
+#nav-overlay-container[data-location="/"] > #nav-overlay-inner > .bottom-nav-container {
+	transform:translate(0, 100%);
+}
+
+ul#nav-links-list {
+	list-style:none;
+	margin:0;
+	padding:0;
+	display:flex;
+	justify-content:space-between;
+	margin:0 auto 0;
+	max-width:60%;
+}
+
+ul#nav-links-list > li > a {
+	border:solid 1px #c78e71;
+	text-decoration:none;
+	text-transform: uppercase;
+	display:block;
+	padding:0.5em 1.5em;
+	background-color:#fffb;
+	color: #10273b;
+	font-size:0.7em;
+	transition:color 1s, background-color 1s;
+}
+
+#nav-overlay-container[data-location^="/gallery"] ul#nav-links-list > li.gallery > a,
+#nav-overlay-container[data-location^="/floorplans"] ul#nav-links-list > li.floorplans > a,
+#nav-overlay-container[data-location^="/view"] ul#nav-links-list > li.view > a,
+#nav-overlay-container[data-location^="/location"] ul#nav-links-list > li.location > a {
+	background-color:#10273b;
+	color: #fff;
+}
