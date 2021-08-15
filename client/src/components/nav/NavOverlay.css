@@ -15,6 +15,10 @@
 	box-sizing:border-box;
 }
 
+#nav-overlay-container > #nav-overlay-inner > .bottom-nav-container {
+	padding:0.5em 1em;
+}
+
 #nav-overlay-container[data-location="/"] > #nav-overlay-inner > .header-container {
 	transform:translate(0, -100%);
 }
@@ -41,7 +45,7 @@
 
 #nav-overlay-inner > .header-container > .customs-house-logo > a {
 	display:block;
-	height:1.1em;
+	height:1.2em;
 	width:1.8em;
 	background-image:url('../../img/icons/CH_header_logo.png');
 	background-position:center bottom;
@@ -77,22 +81,24 @@
 	font-size:0.6em;
 	margin-top:auto;
 	text-align:right;
+	position:relative;
 }
 
-#nav-overlay-inner > .header-container > .location-text[data-location^="/gallery"]::before {
-	content:'GALLERY';
+#nav-overlay-inner > .header-container > .location-text > label {
+	position:absolute;
+	right:0;
+	bottom:0;
+	opacity:0;
+	letter-spacing:-0.4em;
+	transition:opacity 0.5s, letter-spacing 1s;
 }
 
-#nav-overlay-inner > .header-container > .location-text[data-location^="/floorplans"]::before {
-	content:'FLOORPLANS';
-}
-
-#nav-overlay-inner > .header-container > .location-text[data-location^="/view"]::before {
-	content:'VIEW';
-}
-
-#nav-overlay-inner > .header-container > .location-text[data-location^="/location"]::before {
-	content:'LOCATION';
+#nav-overlay-container[data-location^="/gallery"] .header-container > .location-text > .gallery,
+#nav-overlay-container[data-location^="/floorplans"] .header-container > .location-text > .floorplans,
+#nav-overlay-container[data-location^="/view"] .header-container > .location-text > .view,
+#nav-overlay-container[data-location^="/location"] .header-container > .location-text > .location {
+	opacity:1;
+	letter-spacing:inherit;
 }
 
 #nav-overlay-inner > .bottom-nav-container {
@@ -116,16 +122,10 @@ ul#nav-links-list {
 	max-width:60%;
 }
 
-ul#nav-links-list > li > a {
-	border:solid 1px #c78e71;
-	text-decoration:none;
-	text-transform: uppercase;
-	display:block;
-	padding:0.5em 1.5em;
-	background-color:#fffb;
-	color: #10273b;
+ul#nav-links-list > li > a.customs-house-button {
 	font-size:0.7em;
 	transition:color 1s, background-color 1s;
+	display:block;
 }
 
 #nav-overlay-container[data-location^="/gallery"] ul#nav-links-list > li.gallery > a,

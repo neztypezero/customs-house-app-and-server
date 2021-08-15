@@ -8,6 +8,7 @@ import NavOverlay from "./components/nav/NavOverlay";
 import MainScreen from "./components/screens/MainScreen/MainScreen";
 import FloorPlans from "./components/screens/FloorPlans/FloorPlans";
 import Location from "./components/screens/Location/Location";
+import View from "./components/screens/View/View";
 
 const client = new ApolloClient({
 	uri:"http://localhost:4000/graphql",
@@ -16,9 +17,10 @@ const client = new ApolloClient({
 
 const AnimatedSwitch = withRouter(({ location }) => (
   <TransitionGroup>
-    <CSSTransition key={location.key} classNames="slide" timeout={1000}>
+    <CSSTransition key={location.key} classNames="slide" timeout={1001}>
       <Switch location={location}>
         <Route path="/floorplans" component={FloorPlans} />
+        <Route path="/view" component={View} />
         <Route path="/location" component={Location} />
         <Route path="/" component={MainScreen} />
       </Switch>
