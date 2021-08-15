@@ -9,6 +9,7 @@ import MainScreen from "./components/screens/MainScreen/MainScreen";
 import FloorPlans from "./components/screens/FloorPlans/FloorPlans";
 import Location from "./components/screens/Location/Location";
 import View from "./components/screens/View/View";
+// import ImageScreen from "./components/screens/ImageScreen/ImageScreen";
 
 const client = new ApolloClient({
 	uri:"http://localhost:4000/graphql",
