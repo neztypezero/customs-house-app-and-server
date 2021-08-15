@@ -6,7 +6,7 @@ import './FloorPlans.css';
 function FloorPlans() {
 	return (
 		<div id="floor-plan-screen-container" className="full-screen-container">
-			<div id="floor-plan-screen-inner">
+			<div id="floor-plan-screen-inner" className="full-screen-inner">
 				<Link className="customs-house-button urban" to="/floorplans/urban">Urban Collection</Link>
 				<Link className="customs-house-button harbour-view" to="/floorplans/harbour-view">Harbour View Collection</Link>
 				<Link className="customs-house-button suite-type" to="/floorplans/suite-type">Browse By Suite Type</Link>

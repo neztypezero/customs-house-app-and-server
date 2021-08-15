@@ -1,0 +1,19 @@
+#gallery-screen-container {
+}
+
+#gallery-screen-inner > .padding {
+	padding:3em 0 3em;
+	display:flex;
+	box-sizing:border-box;
+	height:100%;
+}
+
+.large-gallery-button {
+	flex:1 1 1px;
+	display:block;
+	height:100%;
+	position:relative;
+}
+
+.large-gallery-button {
+}

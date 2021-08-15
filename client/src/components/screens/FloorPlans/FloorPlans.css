@@ -2,14 +2,6 @@
 	background-image: url('../../../img/backgrounds/FloorPlanBaseImage.png');
 }
 
-#floor-plan-screen-container > #floor-plan-screen-inner {
-	top:0;
-	left:0;
-	width: 100%;
-	height: 100%;
-	position: absolute;
-}
-
 #floor-plan-screen-container > #floor-plan-screen-inner::after {
 	content:'';
 	bottom:0;
@@ -18,6 +10,8 @@
 	height:25%;
 	position: absolute;
 	background-image: url('../../../img/backgrounds/CH_UIBG_TILE.jpg');
+	background-size:2% auto;
+	background-position:bottom;
 	-webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 100%);
 	mask-image: linear-gradient(to bottom, transparent 0%, black 100%);
 }

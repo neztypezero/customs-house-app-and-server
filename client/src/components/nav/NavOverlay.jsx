@@ -1,12 +1,9 @@
-import { useLocation } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 
 import './NavOverlay.css';
 
-function NavOverlay() {
-	const location = useLocation();
-
-	return (
+const AnimatedNavOverlay = withRouter(({ location }) => (
 		<div id="nav-overlay-container" className="full-screen-container" data-location={location.pathname}>
 			<div id="nav-overlay-inner">
 				<div className="header-container">
@@ -29,6 +26,11 @@ function NavOverlay() {
 					</div>
 			</div>
 		</div>
+));
+
+function NavOverlay() {
+	return (
+		<AnimatedNavOverlay />
 	);
 }
 

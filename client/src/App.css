@@ -38,15 +38,23 @@ body {
 	transition:all 1s;
 }
 
-.full-screen-container.slide-exit {
+.full-screen-container > .full-screen-inner {
+	top:0;
+	left:0;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+}
+
+.full-screen-container.fade-exit {
 	opacity:0;
 }
 
-.full-screen-container.slide-enter {
+.full-screen-container.fade-enter {
 	opacity:0;
 }
 
-.full-screen-container.slide-enter-active {
+.full-screen-container.fade-enter-active {
 	opacity:1;
 }
 

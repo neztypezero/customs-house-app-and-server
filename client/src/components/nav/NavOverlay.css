@@ -11,12 +11,15 @@
 #nav-overlay-container > #nav-overlay-inner > .bottom-nav-container {
 	transition:all 1s;
 	background-color:#fff;
-	padding:1em;
 	box-sizing:border-box;
 }
 
+#nav-overlay-container > #nav-overlay-inner > .header-container {
+	padding:1em;
+}
+
 #nav-overlay-container > #nav-overlay-inner > .bottom-nav-container {
-	padding:0.5em 1em;
+	padding:0.7em 1em;
 }
 
 #nav-overlay-container[data-location="/"] > #nav-overlay-inner > .header-container {
