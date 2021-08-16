@@ -77,3 +77,6 @@ typings/
 
 # crappy macos poop
 .DS_Store
+
+# Too Big
+*.mp4
