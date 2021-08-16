@@ -1,8 +1,9 @@
-#floor-plan-screen-container {
-	background-image: url('../../../img/backgrounds/FloorPlanBaseImage.png');
+#floor-plans-screen-container.full-screen-container > #floor-plans-screen-inner.full-screen-inner .padding img.full-size {
+	width:100%;
+	height:100%;
 }
 
-#floor-plan-screen-container > #floor-plan-screen-inner::after {
+#floor-plans-screen-container > #floor-plans-screen-inner::after {
 	content:'';
 	bottom:0;
 	left:0;
@@ -17,29 +18,29 @@
 }
 
 
-#floor-plan-screen-container .customs-house-button {
+#floor-plans-screen-container .customs-house-button {
 	position:absolute;
 	font-size:0.9em;
 	padding: 0.4em 1.0em;
 	z-index:1;
 }
 
-#floor-plan-screen-container .customs-house-button.urban {
-	top:21%;
+#floor-plans-screen-container .customs-house-button.urban {
+	top:22%;
 	right:23%;
 }
 
-#floor-plan-screen-container .customs-house-button.harbour-view {
-	top:52.4%;
+#floor-plans-screen-container .customs-house-button.harbour-view {
+	top:54.4%;
 	left:20%;
 }
 
-#floor-plan-screen-container .customs-house-button.suite-type {
-	top:78%;
+#floor-plans-screen-container .customs-house-button.suite-type {
+	top:80%;
 	right:45%;
 }
 
-#floor-plan-screen-container .customs-house-button {
+#floor-plans-screen-container .customs-house-button {
 	
 }
 

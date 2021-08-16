@@ -34,6 +34,7 @@
 	height:2.6em;
 	z-index:1;
 	cursor:pointer;
+	background-size: 100% auto;
 }
 
 .slide-show-container > .slide-show-prev {

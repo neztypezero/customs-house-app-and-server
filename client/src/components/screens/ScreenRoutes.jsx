@@ -5,6 +5,9 @@ import GallerySuite from "./Gallery/GallerySuite";
 import GalleryHistory from "./Gallery/GalleryHistory";
 import GalleryMovie from "./Gallery/GalleryMovie";
 import FloorPlans from "./FloorPlans/FloorPlans";
+import FloorPlansUrban from "./FloorPlans/FloorPlansUrban";
+import FloorPlansHarbourView from "./FloorPlans/FloorPlansHarbourView";
+import FloorPlansSuite from "./FloorPlans/FloorPlansSuite";
 import Location from "./Location/Location";
 import View from "./View/View";
 
@@ -59,16 +62,19 @@ const galleryRoutes = [
 	},
 ];
 
-const floorplanRoutes = [
+const floorPlanRoutes = [
 	{
+		component:FloorPlansUrban,
 		path:'/floorplans/urban',
 		text:'URBAN COLLECTION | FLOORPLANS'
 	},
 	{
+		component:FloorPlansHarbourView,
 		path:'/floorplans/harbour-view',
 		text:'HARBOUR VIEW COLLECTION | FLOORPLANS'
 	},
 	{
+		component:FloorPlansSuite,
 		path:'/floorplans/suite-type',
 		text:'SUITE TYPE | FLOORPLANS'
 	},
@@ -76,8 +82,8 @@ const floorplanRoutes = [
 
 const navRoutes = [
 	...galleryRoutes,
-	...floorplanRoutes,
+	...floorPlanRoutes,
 	...screenRoutes,
 ];
 
-export {screenRoutes, galleryRoutes, floorplanRoutes, navRoutes};
+export {screenRoutes, galleryRoutes, floorPlanRoutes, navRoutes};

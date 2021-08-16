@@ -3,13 +3,13 @@ import {
   useQuery,
 } from "@apollo/client";
 
-import { QUERY_ROOM_COLLECTIONS } from "../queries/Queries";
+function FloorPlansContainer(props) {
+  const { loading, error, data } = useQuery(props.query, {
+  	variables:props.variables
+  });
 
-function FloorPlanCarosel(props) {
-  const { loading, error, data } = useQuery(QUERY_ROOM_COLLECTIONS);
-
-  if (loading) return <div></div>;
-  if (error) return <div></div>;
+  if (loading) return <div>loading</div>;
+  if (error) return <div>error</div>;
 
   return (
 		<div>
@@ -31,4 +31,4 @@ function FloorPlanCarosel(props) {
   );
 }
 
-export default FloorPlanCarosel;
+export default FloorPlansContainer;

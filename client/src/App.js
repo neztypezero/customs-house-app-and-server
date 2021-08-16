@@ -1,5 +1,6 @@
 import './App.css';
 
+import React from "react";
 import { BrowserRouter, Route, Switch, withRouter } from 'react-router-dom';
 import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
@@ -25,6 +26,28 @@ const AnimatedScreenSwitch = withRouter(({ location }) => (
 ));
 
 function App() {
+	React.useEffect(() => {
+		const handleResize = () => {
+			const main = document.getElementById('main');
+			if (main) {
+				let { height } = main.getBoundingClientRect();
+				if (height > window.innerHeight) {
+					let scale = window.innerHeight/height;
+					main.style.transform = "scale("+scale+")";
+				} else {
+					main.style.transform = "none";
+				}
+			}
+		};
+		handleResize();
+
+		window.addEventListener("resize", handleResize);
+
+		return _ => {
+			window.removeEventListener("resize", handleResize);
+		};
+	});
+
 	return (
 		<ApolloProvider client={client}>
 			<BrowserRouter>

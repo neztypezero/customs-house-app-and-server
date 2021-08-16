@@ -93,6 +93,13 @@ const RootQuery = new GraphQLObjectType({
 				return RoomCollection.find({});
 			}
 		},
+		roomCollectionsByName: {
+			type: new GraphQLList(RoomCollectionType),
+			args: {name:{type:GraphQLString}},
+			resolve(parent, args) {
+				return RoomCollection.find({name:args.name});
+			}
+		},
 		floorPlanByRoomCollection: {
 			type: RoomCollectionType,
 			args: {roomCollectionId:{type:GraphQLID}},
