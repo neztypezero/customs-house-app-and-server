@@ -1,9 +1,10 @@
-import './View.css';
+import ImageScreen from "../ImageScreen/ImageScreen";
 
 function View() {
 	return (
-		<div id="view-screen-container" className="full-screen-container">
-		</div>
+		<ImageScreen>
+			<img src="/img/backgrounds/CH_view.jpg" alt="Views from the Customs House at morning, dusk, and night." />
+		</ImageScreen>
 	);
 }
 

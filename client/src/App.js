@@ -1,6 +1,6 @@
 import './App.css';
 
-import { BrowserRouter, Link, Route, Switch, useLocation, withRouter } from 'react-router-dom';
+import { BrowserRouter, Route, Switch, withRouter } from 'react-router-dom';
 import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 
@@ -23,8 +23,6 @@ const AnimatedScreenSwitch = withRouter(({ location }) => (
 		</CSSTransition>
 	</TransitionGroup>
 ));
-
-//const location = useLocation();
 
 function App() {
 	return (

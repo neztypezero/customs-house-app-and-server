@@ -1,9 +1,10 @@
-import './Location.css';
+import ImageScreen from "../ImageScreen/ImageScreen";
 
 function Location() {
 	return (
-		<div id="location-screen-container" className="full-screen-container">
-		</div>
+		<ImageScreen>
+			<img src="/img/backgrounds/AmenitiesMap_Base.jpg" alt="Downtown Victoria area map around the Customs House." />
+		</ImageScreen>
 	);
 }
 

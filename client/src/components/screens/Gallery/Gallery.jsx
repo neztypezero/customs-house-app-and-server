@@ -1,16 +1,31 @@
-import { Link } from 'react-router-dom';
+import { Route, Switch, withRouter } from 'react-router-dom';
+import { TransitionGroup, CSSTransition } from "react-transition-group";
+
+import GalleryMainScreen from "./GalleryMainScreen";
 
 import './Gallery.css';
+
+import {galleryRoutes} from "../../screens/ScreenRoutes";
+
+const AnimatedScreenSwitch = withRouter(({ location }) => (
+	<TransitionGroup>
+		<CSSTransition key={location.key} classNames="fade" timeout={1000}>
+			<Switch location={location}>
+				{galleryRoutes.map((route) => (
+					<Route key={route.path} path={route.path} component={route.component} />
+				))}
+				<Route key='/gallery' path='/gallery' component={GalleryMainScreen} />
+			</Switch>
+		</CSSTransition>
+	</TransitionGroup>
+));
 
 function Gallery() {
 	return (
 		<div id="gallery-screen-container" className="full-screen-container">
 			<div id="gallery-screen-inner" className="full-screen-inner">
 				<div className="padding">
-					<Link className="large-gallery-button building" to="/gallery/building"><label>Building</label></Link>
-					<Link className="large-gallery-button suite" to="/gallery/suite"><label>Suite</label></Link>
-					<Link className="large-gallery-button history" to="/gallery/history"><label>History</label></Link>
-					<Link className="large-gallery-button movie" to="/gallery/movie"><label>Movie</label></Link>
+					<AnimatedScreenSwitch />
 				</div>
 			</div>
 		</div>

@@ -5,11 +5,11 @@ import {
 
 import { QUERY_ROOM_COLLECTIONS } from "../queries/Queries";
 
-function FloorPlanCarosel() {
+function FloorPlanCarosel(props) {
   const { loading, error, data } = useQuery(QUERY_ROOM_COLLECTIONS);
 
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error :(</p>;
+  if (loading) return <div></div>;
+  if (error) return <div></div>;
 
   return (
 		<div>

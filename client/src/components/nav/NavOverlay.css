@@ -1,28 +1,26 @@
-#nav-overlay-container {
-	transition:all 1s;
-}
-
-#nav-overlay-container[data-location="/"] {
+#nav-overlay-container[data-location="/"],
+#nav-overlay-container[data-location^="/gallery/movie"] {
 	opacity:0;
 	pointer-events:none;
 }
 
-#nav-overlay-container > #nav-overlay-inner > .header-container,
-#nav-overlay-container > #nav-overlay-inner > .bottom-nav-container {
-	transition:all 1s;
+#nav-overlay-inner > .header-container,
+#nav-overlay-inner > .bottom-nav-container {
+	transition:transform 1s;
 	background-color:#fff;
 	box-sizing:border-box;
 }
 
 #nav-overlay-container > #nav-overlay-inner > .header-container {
-	padding:1em;
+	padding:0.74em 1em;
 }
 
 #nav-overlay-container > #nav-overlay-inner > .bottom-nav-container {
-	padding:0.7em 1em;
+	padding:0.5em 1em;
 }
 
-#nav-overlay-container[data-location="/"] > #nav-overlay-inner > .header-container {
+#nav-overlay-container[data-location="/"] > #nav-overlay-inner > .header-container,
+#nav-overlay-container[data-location^="/gallery/movie"] > #nav-overlay-inner > .header-container {
 	transform:translate(0, -100%);
 }
 
@@ -33,7 +31,8 @@
 	width:100%;
 }
 
-#nav-overlay-inner > .header-container > * {
+#nav-overlay-inner > .header-container > .customs-house-logo,
+#nav-overlay-inner > .header-container > .location-text {
 	flex:1 1 1px;
 }
 
@@ -59,7 +58,7 @@
 #nav-overlay-inner > .header-container > .customs-house-text {
 	text-align:center;
 	color: #10273b;
-	font-size:0.25em;
+	font-size:0.28em;
 }
 
 #nav-overlay-inner > .header-container > .customs-house-text::before {
@@ -87,19 +86,22 @@
 	position:relative;
 }
 
-#nav-overlay-inner > .header-container > .location-text > label {
+#nav-overlay-inner > .header-container > .location-text label {
 	position:absolute;
 	right:0;
 	bottom:0;
-	opacity:0;
-	letter-spacing:-0.4em;
 	transition:opacity 0.5s, letter-spacing 1s;
 }
 
-#nav-overlay-container[data-location^="/gallery"] .header-container > .location-text > .gallery,
-#nav-overlay-container[data-location^="/floorplans"] .header-container > .location-text > .floorplans,
-#nav-overlay-container[data-location^="/view"] .header-container > .location-text > .view,
-#nav-overlay-container[data-location^="/location"] .header-container > .location-text > .location {
+#nav-overlay-inner > .header-container > .location-text label.ani-text-enter,
+#nav-overlay-inner > .header-container > .location-text label.ani-text-exit-active,
+#nav-overlay-inner > .header-container > .location-text label.ani-text-exit {
+	opacity:0;
+	letter-spacing:-0.4em;
+}
+
+#nav-overlay-inner > .header-container > .location-text label.ani-text-enter-active,
+#nav-overlay-inner > .header-container > .location-text label.ani-text-enter-done {
 	opacity:1;
 	letter-spacing:inherit;
 }
@@ -111,7 +113,8 @@
 	width:100%;
 }
 
-#nav-overlay-container[data-location="/"] > #nav-overlay-inner > .bottom-nav-container {
+#nav-overlay-container[data-location="/"] > #nav-overlay-inner > .bottom-nav-container,
+#nav-overlay-container[data-location^="/gallery/movie"] > #nav-overlay-inner > .bottom-nav-container {
 	transform:translate(0, 100%);
 }
 
@@ -127,14 +130,5 @@ ul#nav-links-list {
 
 ul#nav-links-list > li > a.customs-house-button {
 	font-size:0.7em;
-	transition:color 1s, background-color 1s;
 	display:block;
-}
-
-#nav-overlay-container[data-location^="/gallery"] ul#nav-links-list > li.gallery > a,
-#nav-overlay-container[data-location^="/floorplans"] ul#nav-links-list > li.floorplans > a,
-#nav-overlay-container[data-location^="/view"] ul#nav-links-list > li.view > a,
-#nav-overlay-container[data-location^="/location"] ul#nav-links-list > li.location > a {
-	background-color:#10273b;
-	color: #fff;
 }
