@@ -19,6 +19,7 @@ const QUERY_ROOM_COLLECTIONS = gql`
         size
         unit
         level
+        roomCollectionDescription
       }
     }
   }
@@ -42,6 +43,7 @@ query RoomCollections($name: String!) {
         size
         unit
         level
+        roomCollectionDescription
       }
     }
   }

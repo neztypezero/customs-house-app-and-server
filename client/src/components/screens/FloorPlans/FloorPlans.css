@@ -1,9 +1,9 @@
-#floor-plans-screen-container.full-screen-container > #floor-plans-screen-inner.full-screen-inner .padding img.full-size {
+#floor-plans-screen-container.full-screen-container #floor-plans-screen-inner.full-screen-inner .padding img.full-size {
 	width:100%;
 	height:100%;
 }
 
-#floor-plans-screen-container > #floor-plans-screen-inner::after {
+#floor-plans-screen-container #floor-plans-screen-inner::after {
 	content:'';
 	bottom:0;
 	left:0;
@@ -16,7 +16,6 @@
 	-webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 100%);
 	mask-image: linear-gradient(to bottom, transparent 0%, black 100%);
 }
-
 
 #floor-plans-screen-container .customs-house-button {
 	position:absolute;
@@ -40,10 +39,65 @@
 	right:45%;
 }
 
-#floor-plans-screen-container .customs-house-button {
-	
+#floor-plans-screen-container.full-screen-container > #floor-plans-screen-inner.full-screen-inner > .padding div {
+	height:100%;
 }
 
-#nav-overlay-container > #nav-overlay-inner > .bottom-nav-container {
+.room-collection-container {
+	position:relative;
+}
+
+.room-collection-container .room-collection-nav {
+	display:flex;
+	text-transform:uppercase;
+	font-family:AvenirNext;
+	font-size:0.6em;
+	color:#c78e71;
+	line-height:2em;
+	position:absolute;
+	top:0;
+	left:0;
+	height:100%;
+}
+
+.room-collection-container .room-collection-nav .level-list {
+	padding-right:1em;
+}
+
+.room-collection-container .room-collection-nav li[data-selected="true"] {
+	color:#10273b;
+}
+
+.room-collection-container .room-collection-nav .room-container .room-list {
+	border-left:solid 1px #10273b;
+}
+
+.room-collection-container .room-collection-nav ul {
+	list-style:none;
+}
+
+.room-collection-container .room-floor-plan-container {
+	position:relative;
+	height:100%;
+	background-color:darkgoldenrod;
+	transform:scale(0.5);
+}
+
+.room-collection-container .room-floor-plan-container img {
+	width:100%;
+	height:auto;
+	position:absolute;
+	left:100%;
+	top:100%;
+	background-color:red;
+}
+
+.room-collection-container .room-floor-plan-container img[data-selected="true"] {
+	left:0;
+	top:0;
+	background:none;
+}
+
+#nav-overlay-container #nav-overlay-inner .bottom-nav-container {
 	background-color:transparent;
 }

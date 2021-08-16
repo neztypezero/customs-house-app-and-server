@@ -1,11 +1,16 @@
 @font-face { 
 	font-family: Knockout; 
 	src: url('./font/KnockoutHTF29JuniorLiteweightRegular.otf') format("opentype"); 
-} 
+}
 
 @font-face {
 	font-family: Chronicle; 
 	src: url('./font/ChronicleDisp-Roman.otf') format("opentype"); 
+}
+
+@font-face {
+	font-family:AvenirNext; 
+	src: url('./font/AvenirNextLTPro-Regular.otf') format("opentype"); 
 }
 
 body {
@@ -49,6 +54,9 @@ body {
 
 .full-screen-container > .full-screen-inner > .padding {
 	padding:3.4em 0 2.6em;
+	height: 100%;
+	box-sizing: border-box;
+	position:relative;
 }
 
 .full-screen-container.fade-exit {

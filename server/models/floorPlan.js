@@ -10,6 +10,7 @@ const floorPlanSchema = new Schema({
 	unit: Number,
 	level: Number,
 	roomCollectionId: String,
+	roomCollectionDescription: String,
 });
 
 module.exports = mongoose.model("FloorPlan", floorPlanSchema);
