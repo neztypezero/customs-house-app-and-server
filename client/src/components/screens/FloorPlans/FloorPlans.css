@@ -193,12 +193,12 @@
 
 .room-collection-container.floor-plan-change-enter-active[data-animation-direction="down"] .room-floor-plan-container img[data-current="true"] {
 	top:100%;
-	transition:top 0.5s;
+	transition:top 0.35s;
 }
 
 .room-collection-container.floor-plan-change-enter-active[data-animation-direction="down"] .room-floor-plan-container img[data-next="true"] {
 	top:0;
-	transition:top 0.5s;
+	transition:top 0.35s;
 }
 
 #nav-overlay-container #nav-overlay-inner .bottom-nav-container {

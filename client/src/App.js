@@ -1,12 +1,13 @@
 import './App.css';
 
-import React from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter, Route, Switch, withRouter } from 'react-router-dom';
 import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 
 import {screenRoutes} from "./components/screens/ScreenRoutes";
 import {screenSaverRoute} from "./components/screens/ScreenRoutes";
+import IntroScreen from "./components/screens/IntroScreen/IntroScreen";
 
 import NavOverlay from "./components/nav/NavOverlay";
 
@@ -15,9 +16,9 @@ const client = new ApolloClient({
 	cache: new InMemoryCache(),
 });
 
-const AnimatedScreenSwitch = withRouter(({ location }) => (
-	<TransitionGroup>
-		<CSSTransition key={location.key} classNames="fade" timeout={1001}>
+const AnimatedScreenSwitch = withRouter(({ location }) => {
+	return <TransitionGroup>
+		<CSSTransition key={location.key} classNames="fade" timeout={1000}>
 			<Switch location={location}>
 				<Route path={screenSaverRoute.path} component={screenSaverRoute.component} />
 				{screenRoutes.map((route) => (
@@ -26,7 +27,7 @@ const AnimatedScreenSwitch = withRouter(({ location }) => (
 			</Switch>
 		</CSSTransition>
 	</TransitionGroup>
-));
+});
 
 function App() {
 	React.useEffect(() => {
@@ -52,18 +53,43 @@ function App() {
 		};
 	});
 
-	return (
-		<ApolloProvider client={client}>
-			<BrowserRouter>
-				<div id="main">
-					<div className="mainScreenWrapper">
-						<AnimatedScreenSwitch />
-						<NavOverlay />
+	const [introLoaded, setIntroLoaded] = useState(false);
+	if(introLoaded) {
+		return (
+			<ApolloProvider client={client}>
+				<BrowserRouter>
+					<div id="main">
+						<div className="mainScreenWrapper">
+							<AnimatedScreenSwitch />
+							<NavOverlay />
+						</div>
 					</div>
+				</BrowserRouter>
+			</ApolloProvider>
+		);
+	} else {
+		return <BrowserRouter>
+			<div id="main">
+				<div className="mainScreenWrapper">
+					<IntroScreen onClick={
+						(e) => {
+							let root = document.getElementById("root");
+							if (root.requestFullscreen) {
+								root.requestFullscreen();
+							} else if (root.webkitRequestFullscreen) { /* Old Safari */
+								root.webkitRequestFullscreen();
+							} else if (root.msRequestFullscreen) { /* IE11 */
+								root.msRequestFullscreen();
+							} else if (root.mozRequestFullscreen) { /* Old Firefox */
+								root.mozRequestFullscreen();
+							}
+							setIntroLoaded(true);
+						}
+					} />
 				</div>
-			</BrowserRouter>
-		</ApolloProvider>
-	);
+			</div>
+		</BrowserRouter>
+	}
 }
 
 export default App;

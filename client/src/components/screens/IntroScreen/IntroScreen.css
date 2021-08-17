@@ -1,0 +1,9 @@
+#intro-screen-container {
+	background-image: url('../../../img/backgrounds/CH_BlueBG.jpg');
+}
+
+#intro-screen-inner .customs-house-button.main {
+	position:absolute;
+	left:15%;
+	top: 25%;
+}

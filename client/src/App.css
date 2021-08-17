@@ -79,6 +79,7 @@ body {
 	color: #10273b;
 	background-color:#fffb;
 	transition:color 0.5s, background-color 1s;
+	display:block;
 }
 
 .customs-house-button:hover {

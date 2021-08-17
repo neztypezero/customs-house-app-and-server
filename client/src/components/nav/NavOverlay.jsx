@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link, Route, Switch, withRouter, useHistory } from 'react-router-dom';
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 
@@ -14,7 +14,6 @@ const AnimatedNavOverlay = withRouter(({ location }) => {
 
 		const unload = () => {
 			if (timeout > 0) {
-				console.log("unload");
 				document.removeEventListener("mousemove", handleInput);
 				document.removeEventListener("keypress", handleInput);
 				clearInterval(timeout);

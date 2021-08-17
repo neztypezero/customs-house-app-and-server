@@ -4,6 +4,22 @@ import { CSSTransition } from "react-transition-group";
 import './SlideShow.css';
 
 function SlideShow(props) {
+	React.useEffect(() => {
+		const handleInput = (keyboardEvent) => {
+			if (keyboardEvent.keyCode === 37) {
+				setSlideOffset(-1);
+				setSlideAnimate(true);
+			} else if (keyboardEvent.keyCode === 39) {
+				setSlideOffset(1);
+				setSlideAnimate(true);
+			}
+		};
+		document.addEventListener("keydown", handleInput);
+
+		return _ => {
+			document.removeEventListener("keydown", handleInput);
+		};
+	});
 	const [slideCount] = useState(props.children.length);
 	const [slideIndex, setSlideIndex] = useState(1);
 	const [slideOffset, setSlideOffset] = useState(0);
@@ -30,8 +46,6 @@ function SlideShow(props) {
 			setSlideIndex(1);
 		} else if (slideIndex < 1) {
 			setSlideIndex(slideCount);
-		} else {
-
 		}
 	}}>
 		<div className="slide-show-container">
@@ -47,12 +61,12 @@ function SlideShow(props) {
 								</div>
 							</div>
 							<div className="slide-show-prev" onClick={() => {
-								setSlideAnimate(true);
 								setSlideOffset(-1);
+								setSlideAnimate(true);
 							}}></div>
 							<div className="slide-show-next" onClick={() => {
-								setSlideAnimate(true);
 								setSlideOffset(1);
+								setSlideAnimate(true);
 							}}></div>
 							<div className="slide-show-dots">
 							{props.children.map((child, i) => {

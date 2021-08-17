@@ -29,21 +29,23 @@
 .slide-show-container > .slide-show-prev,
 .slide-show-container > .slide-show-next {
 	position:absolute;
-	top:calc(50% - 1.3em);
-	width:1.5em;
-	height:2.6em;
+	top:0;
+	width:3.5em;
+	height:100%;
 	z-index:1;
 	cursor:pointer;
-	background-size: 100% auto;
+	background-size: 60% auto;
+	background-position:center center;
+	background-repeat:no-repeat;
 }
 
 .slide-show-container > .slide-show-prev {
-	left:0.4em;
+	left:0;
 	background-image:url('../../../img/icons/slide-show-prev.png');
 }
 
 .slide-show-container > .slide-show-next {
-	right:0.4em;
+	right:0;
 	background-image:url('../../../img/icons/slide-show-next.png');
 }
 
