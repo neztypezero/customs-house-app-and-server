@@ -1,6 +1,6 @@
 import './App.css';
 
-import React from "react";
+import React from 'react';
 import { BrowserRouter, Route, Switch, withRouter } from 'react-router-dom';
 import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
@@ -15,13 +15,14 @@ const client = new ApolloClient({
 	cache: new InMemoryCache(),
 });
 
-console.log(screenSaverRoute);
-
 const AnimatedScreenSwitch = withRouter(({ location }) => (
 	<TransitionGroup>
 		<CSSTransition key={location.key} classNames="fade" timeout={1001}>
 			<Switch location={location}>
-				<Route key={screenSaverRoute.path} path="/" component={screenSaverRoute.component} />
+				<Route path={screenSaverRoute.path} component={screenSaverRoute.component} />
+				{screenRoutes.map((route) => (
+					<Route key={route.path} path={route.path} component={route.component} />
+				))}
 			</Switch>
 		</CSSTransition>
 	</TransitionGroup>
@@ -30,9 +31,10 @@ const AnimatedScreenSwitch = withRouter(({ location }) => (
 function App() {
 	React.useEffect(() => {
 		const handleResize = () => {
+			const root = document.getElementById('root');
 			const main = document.getElementById('main');
 			if (main) {
-				let { height } = main.getBoundingClientRect();
+				let { height } = root.getBoundingClientRect();
 				if (height > window.innerHeight) {
 					let scale = window.innerHeight/height;
 					main.style.transform = "scale("+scale+")";

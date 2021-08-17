@@ -1,13 +1,13 @@
 #nav-overlay-container[data-location="/"],
-#nav-overlay-container[data-location^="/gallery/movie"] {
-	opacity:0;
+#nav-overlay-container[data-location^="/gallery/movie"],
+#nav-overlay-container[data-location^="/screenSaver"] {
 	pointer-events:none;
 }
 
 #nav-overlay-inner > .header-container,
 #nav-overlay-inner > .bottom-nav-container {
 	transition:transform 1s;
-	background-color:#fff;
+	background-color:#fffa;
 	box-sizing:border-box;
 }
 
@@ -20,7 +20,8 @@
 }
 
 #nav-overlay-container[data-location="/"] > #nav-overlay-inner > .header-container,
-#nav-overlay-container[data-location^="/gallery/movie"] > #nav-overlay-inner > .header-container {
+#nav-overlay-container[data-location^="/gallery/movie"] > #nav-overlay-inner > .header-container,
+#nav-overlay-container[data-location^="/screenSaver"] > #nav-overlay-inner > .header-container {
 	transform:translate(0, -100%);
 }
 
@@ -121,7 +122,8 @@
 }
 
 #nav-overlay-container[data-location="/"] > #nav-overlay-inner > .bottom-nav-container,
-#nav-overlay-container[data-location^="/gallery/movie"] > #nav-overlay-inner > .bottom-nav-container {
+#nav-overlay-container[data-location^="/gallery/movie"] > #nav-overlay-inner > .bottom-nav-container,
+#nav-overlay-container[data-location^="/screenSaver"] > #nav-overlay-inner > .bottom-nav-container {
 	transform:translate(0, 100%);
 }
 

@@ -1,4 +1,5 @@
-import { Link, Route, Switch, withRouter } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Link, Route, Switch, withRouter, useHistory } from 'react-router-dom';
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 
 import './NavOverlay.css';
@@ -6,6 +7,43 @@ import './NavOverlay.css';
 import {navRoutes} from "../screens/ScreenRoutes";
 
 const AnimatedNavOverlay = withRouter(({ location }) => {
+	const history = useHistory();
+
+	React.useEffect(() => {
+		let timeSinceLastInput = 1;
+
+		const unload = () => {
+			if (timeout > 0) {
+				console.log("unload");
+				document.removeEventListener("mousemove", handleInput);
+				document.removeEventListener("keypress", handleInput);
+				clearInterval(timeout);
+				timeout = 0;
+			}
+		}
+		const handleInput = () => {
+			timeSinceLastInput = 0;
+			if (location.pathname.startsWith('/screenSaver')) {
+				unload();
+				history.goBack();
+			}
+		};
+		let timeout = setInterval(() => {
+			if (!location.pathname.startsWith('/screenSaver')) {
+				if (timeSinceLastInput >= 300) {
+					history.push('/screenSaver');
+				}
+			}
+			timeSinceLastInput += 1;
+		}, 1000);
+
+		document.addEventListener("mousemove", handleInput);
+		document.addEventListener("keypress", handleInput);
+
+		return _ => {
+			unload();
+		};
+	});
 	const isActive = (buttonLocation) => {
 		return location.pathname.startsWith(buttonLocation);
 	};
