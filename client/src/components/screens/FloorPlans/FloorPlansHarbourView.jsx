@@ -1,12 +1,11 @@
 import './FloorPlans.css';
 
-import { Link } from 'react-router-dom';
+import FloorPlansContainer from "./FloorPlansContainer";
+import { QUERY_ROOM_COLLECTIONS_BY_NAME } from "../../../queries/Queries";
 
 function FloorPlansHarbourView() {
 	return (
-		<>
-			<h1>FloorPlansHarbourView</h1>
-		</>
+		<FloorPlansContainer query={QUERY_ROOM_COLLECTIONS_BY_NAME} variables={{name:"Harbour View Collection"}}/>
 	);
 }
 

@@ -14,7 +14,7 @@ const AnimatedNavOverlay = withRouter(({ location }) => {
 		<div id="nav-overlay-inner">
 			<div className="header-container">
 				<div className="customs-house-logo"><Link to="/"></Link></div>
-				<div className="customs-house-text"></div>
+				<div className="customs-house-text"><Link to="/"></Link></div>
 				<div className="location-text">
 					<TransitionGroup>
 						<CSSTransition key={location.key} classNames="ani-text" timeout={1001}>

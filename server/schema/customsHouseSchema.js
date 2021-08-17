@@ -94,6 +94,12 @@ const RootQuery = new GraphQLObjectType({
 				return RoomCollection.find({});
 			}
 		},
+		roomsBySuiteType: {
+			type: new GraphQLList(RoomCountType),
+			resolve(parent, args) {
+				return RoomCount.find({});
+			}
+		},
 		roomCollectionsByName: {
 			type: new GraphQLList(RoomCollectionType),
 			args: {name:{type:GraphQLString}},
@@ -173,6 +179,18 @@ const Mutation = new GraphQLObjectType({
 					roomCollectionDescription: args.roomCollectionDescription,
 				});
 				return floorPlan.save();
+			}
+		},
+		addSuiteType: { 
+			type: RoomCountType,
+			args: {
+				count:{type:new GraphQLNonNull(GraphQLInt)},
+			},
+			resolve(parent, args) {
+				let roomCount = new RoomCount({
+					count: args.count,
+				});
+				return roomCount.save();
 			}
 		},
 	}),
@@ -384,7 +402,215 @@ mutation {
 	}
 }
 
+mutation {
+	addFloorPlan(
+		name:"E4",
+		img:"206.png",
+		roomDescription:"2 bedroom & family",
+		roomCount:2,
+		size:"2138 sq. ft. | ext. 108 sq. ft.",
+		unit:206,
+		level:2,
+		roomCollectionId:"6114ca76d325a91491085fcd",
+	) {
+		id,
+		name,
+	}
+}
 
+mutation {
+	addFloorPlan(
+		name:"E2",
+		img:"207.png",
+		roomDescription:"2 bedroom & family",
+		roomCount:2,
+		size:"2160 sq. ft. | ext. 102 sq. ft.",
+		unit:207,
+		level:2,
+		roomCollectionId:"6114ca76d325a91491085fcd",
+	) {
+		id,
+		name,
+	}
+}
+
+mutation {
+	addFloorPlan(
+		name:"E2",
+		img:"209.png",
+		roomDescription:"2 bedroom & den",
+		roomCount:2,
+		size:"1655 sq. ft.",
+		unit:209,
+		level:2,
+		roomCollectionId:"6114ca76d325a91491085fcd",
+	) {
+		id,
+		name,
+	}
+}
+
+mutation {
+	addFloorPlan(
+		name:"C11",
+		img:"211.png",
+		roomDescription:"2 bedroom",
+		roomCount:2,
+		size:"1710 sq. ft.",
+		unit:211,
+		level:2,
+		roomCollectionId:"6114ca76d325a91491085fcd",
+	) {
+		id,
+		name,
+	}
+}
+
+mutation {
+	addFloorPlan(
+		name:"E2",
+		img:"309.png",
+		roomDescription:"2 bedroom & den",
+		roomCount:2,
+		size:"1655 sq. ft.",
+		unit:309,
+		level:3,
+		roomCollectionId:"6114ca76d325a91491085fcd",
+	) {
+		id,
+		name,
+	}
+}
+
+mutation {
+	addFloorPlan(
+		name:"A7",
+		img:"310.png",
+		roomDescription:"1 bedroom",
+		roomCount:1,
+		size:"831 sq. ft.",
+		unit:310,
+		level:3,
+		roomCollectionId:"6114ca76d325a91491085fcd",
+	) {
+		id,
+		name,
+	}
+}
+
+mutation {
+	addFloorPlan(
+		name:"C11",
+		img:"311.png",
+		roomDescription:"2 bedroom",
+		roomCount:2,
+		size:"1710 sq. ft.",
+		unit:311,
+		level:3,
+		roomCollectionId:"6114ca76d325a91491085fcd",
+	) {
+		id,
+		name,
+	}
+}
+
+mutation {
+	addFloorPlan(
+		name:"E2",
+		img:"408.png",
+		roomDescription:"2 bedroom & den",
+		roomCount:2,
+		size:"1655 sq. ft.",
+		unit:408,
+		level:4,
+		roomCollectionId:"6114ca76d325a91491085fcd",
+	) {
+		id,
+		name,
+	}
+}
+
+mutation {
+	addFloorPlan(
+		name:"C11",
+		img:"410.png",
+		roomDescription:"2 bedroom",
+		roomCount:2,
+		size:"1710 sq. ft.",
+		unit:410,
+		level:4,
+		roomCollectionId:"6114ca76d325a91491085fcd",
+	) {
+		id,
+		name,
+	}
+}
+
+mutation {
+	addFloorPlan(
+		name:"F2",
+		img:"501.png",
+		roomDescription:"3 bedroom & family",
+		roomCount:3,
+		size:"2279 sq. ft. | ext. 214 sq. ft.",
+		unit:501,
+		level:5,
+		roomCollectionId:"6114ca76d325a91491085fcd",
+	) {
+		id,
+		name,
+	}
+}
+
+mutation {
+	addFloorPlan(
+		name:"SPH1",
+		img:"601.png",
+		roomDescription:"2 bedroom & family",
+		roomCount:2,
+		size:"2353 sq. ft. | ext. 969 sq. ft.",
+		unit:601,
+		level:6,
+		roomCollectionId:"6114ca76d325a91491085fcd",
+	) {
+		id,
+		name,
+	}
+}
+
+mutation {
+	addFloorPlan(
+		name:"PH1",
+		img:"701.png",
+		roomDescription:"3 bedroom & family",
+		roomCount:3,
+		size:"3531 sq. ft. | ext. 548 sq. ft.<br>roof deck 1520 sq. ft.",
+		unit:701,
+		level:7,
+		roomCollectionId:"6114ca76d325a91491085fcd",
+		roomCollectionDescription:"Penthouse Collection",
+	) {
+		id,
+		name,
+	}
+}
+
+mutation {
+	addFloorPlan(
+		name:"PH2",
+		img:"702.png",
+		roomDescription:"3 bedroom & den & family",
+		roomCount:3,
+		size:"4422 sq. ft. | ext. 596 sq. ft.<br>roof deck 1990 sq. ft.",
+		unit:702,
+		level:7,
+		roomCollectionId:"6114ca76d325a91491085fcd",
+		roomCollectionDescription:"Penthouse Collection",
+	) {
+		id,
+		name,
+	}
+}
 */
 
 module.exports = new GraphQLSchema({

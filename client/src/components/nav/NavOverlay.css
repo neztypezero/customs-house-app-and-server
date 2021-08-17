@@ -55,13 +55,14 @@
 	background-repeat:no-repeat;
 }
 
-#nav-overlay-inner > .header-container > .customs-house-text {
+#nav-overlay-inner > .header-container > .customs-house-text > a {
 	text-align:center;
 	color: #10273b;
 	font-size:0.28em;
+	text-decoration:none;
 }
 
-#nav-overlay-inner > .header-container > .customs-house-text::before {
+#nav-overlay-inner > .header-container > .customs-house-text > a::before {
 	content:'CUSTOMS';
 	display:block;
 	font-size: 3.5em;
@@ -70,7 +71,7 @@
 	font-weight:bold;
 }
 
-#nav-overlay-inner > .header-container > .customs-house-text::after {
+#nav-overlay-inner > .header-container > .customs-house-text > a::after {
 	content:'HOUSE';
 	display:block;
 	font-family: Knockout;
@@ -84,6 +85,12 @@
 	margin-top:auto;
 	text-align:right;
 	position:relative;
+	color: #10273b;
+}
+
+#nav-overlay-inner > .header-container > .location-text a {
+	text-decoration:none;
+	color:inherit;
 }
 
 #nav-overlay-inner > .header-container > .location-text label {

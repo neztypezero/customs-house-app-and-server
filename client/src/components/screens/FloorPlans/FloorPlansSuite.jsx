@@ -1,12 +1,11 @@
 import './FloorPlans.css';
 
-import { Link } from 'react-router-dom';
+import FloorPlansContainer from "./FloorPlansContainer";
+import { QUERY_ROOMS_BY_SUITE_TYPE } from "../../../queries/Queries";
 
 function FloorPlansSuite() {
 	return (
-		<>
-			<h1>FloorPlansSuite</h1>
-		</>
+		<FloorPlansContainer query={QUERY_ROOMS_BY_SUITE_TYPE} variables={{}}/>
 	);
 }
 

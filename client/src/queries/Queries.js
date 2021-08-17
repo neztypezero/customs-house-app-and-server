@@ -50,7 +50,28 @@ query RoomCollections($name: String!) {
 }
 `;
 
+const QUERY_ROOMS_BY_SUITE_TYPE = gql`
+{
+  levels: roomsBySuiteType {
+    id
+    count
+    floorPlans {
+      id
+      name
+      img
+      roomDescription
+      roomCount
+      size
+      unit
+      level
+      roomCollectionDescription
+    }
+  }
+}
+`;
+
 export {
   QUERY_ROOM_COLLECTIONS,
   QUERY_ROOM_COLLECTIONS_BY_NAME,
+  QUERY_ROOMS_BY_SUITE_TYPE,
 }

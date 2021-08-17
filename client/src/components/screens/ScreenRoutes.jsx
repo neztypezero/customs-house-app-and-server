@@ -10,6 +10,9 @@ import FloorPlansHarbourView from "./FloorPlans/FloorPlansHarbourView";
 import FloorPlansSuite from "./FloorPlans/FloorPlansSuite";
 import Location from "./Location/Location";
 import View from "./View/View";
+import ScreenSaver from "./ScreenSaver/ScreenSaver";
+
+import { Link } from 'react-router-dom';
 
 const screenRoutes = [
 	{
@@ -43,22 +46,22 @@ const galleryRoutes = [
 	{
 		component:GalleryBuilding,
 		path:'/gallery/building',
-		text:'GALLERY | BUILDING',
+		text: <span><Link to="/gallery">GALLERY</Link> | BUILDING</span>,
 	},
 	{
 		component:GallerySuite,
 		path:'/gallery/suite',
-		text:'GALLERY | SUITE',
+		text: <span><Link to="/gallery">GALLERY</Link> | SUITE</span>,
 	},
 	{
 		component:GalleryHistory,
 		path:'/gallery/history',
-		text:'GALLERY | HISTORY',
+		text: <span><Link to="/gallery">GALLERY</Link> | HISTORY</span>,
 	},
 	{
 		component:GalleryMovie,
 		path:'/gallery/movie',
-		text:'GALLERY | MOVIE',
+		text: <span><Link to="/gallery">GALLERY</Link> | MOVIE</span>,
 	},
 ];
 
@@ -66,17 +69,17 @@ const floorPlanRoutes = [
 	{
 		component:FloorPlansUrban,
 		path:'/floorplans/urban',
-		text:'URBAN COLLECTION | FLOORPLANS'
+		text: <span><Link to="/floorplans">FLOORPLANS</Link> | URBAN COLLECTION</span>,
 	},
 	{
 		component:FloorPlansHarbourView,
 		path:'/floorplans/harbour-view',
-		text:'HARBOUR VIEW COLLECTION | FLOORPLANS'
+		text: <span><Link to="/floorplans">FLOORPLANS</Link> | HARBOUR VIEW COLLECTION</span>,
 	},
 	{
 		component:FloorPlansSuite,
 		path:'/floorplans/suite-type',
-		text:'SUITE TYPE | FLOORPLANS'
+		text: <span><Link to="/floorplans">FLOORPLANS</Link> | SUITE TYPE</span>,
 	},
 ];
 
@@ -86,4 +89,11 @@ const navRoutes = [
 	...screenRoutes,
 ];
 
-export {screenRoutes, galleryRoutes, floorPlanRoutes, navRoutes};
+
+const screenSaverRoute = {
+	component:ScreenSaver,
+	path:'/screenSaver',
+	text:''
+};
+
+export {screenRoutes, galleryRoutes, floorPlanRoutes, navRoutes, screenSaverRoute};
