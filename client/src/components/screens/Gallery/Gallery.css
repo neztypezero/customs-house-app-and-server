@@ -13,6 +13,11 @@
 	height:100%;
 }
 
+#gallery-screen-inner > .padding .movie-link {
+	display:block;
+	width:100%;
+}
+
 .large-gallery-button {
 	flex:0 0 24.5%;
 	display:block;

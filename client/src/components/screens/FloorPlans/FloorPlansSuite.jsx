@@ -1,7 +1,7 @@
 import './FloorPlans.css';
 
 import FloorPlansContainer from "./FloorPlansContainer";
-import { QUERY_ROOMS_BY_SUITE_TYPE } from "../../../queries/Queries";
+import { QUERY_ROOMS_BY_SUITE_TYPE } from "../../../db/queries/Queries";
 
 function FloorPlansSuite() {
 	return (
