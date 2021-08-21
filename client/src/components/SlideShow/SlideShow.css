@@ -41,12 +41,12 @@
 
 .slide-show-container > .slide-show-prev {
 	left:0;
-	background-image:url('../../../img/icons/slide-show-prev.png');
+	background-image:url('../../assets/img/icons/slide-show-prev.png');
 }
 
 .slide-show-container > .slide-show-next {
 	right:0;
-	background-image:url('../../../img/icons/slide-show-next.png');
+	background-image:url('../../assets/img/icons/slide-show-next.png');
 }
 
 .slide-show-container > .slide-show-dots {

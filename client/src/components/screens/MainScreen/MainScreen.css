@@ -1,5 +1,5 @@
 #main-screen-container {
-	background-image: url('../../../img/backgrounds/CH_BlueBG.jpg');
+	background-image: url('../../../assets/img/backgrounds/CH_BlueBG.jpg');
 }
 
 #main-screen-inner {
@@ -16,7 +16,7 @@
 #main-screen-inner > .customs-house-logo {
 	margin-top:2.5%;
 	height:46%;
-	background-image: url('../../../img/icons/CH_logo.png');
+	background-image: url('../../../assets/img/icons/CH_logo.png');
 	background-position:center;
 	background-repeat:no-repeat;
 	background-size:auto 100%;

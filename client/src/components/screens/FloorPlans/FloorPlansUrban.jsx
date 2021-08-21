@@ -1,5 +1,3 @@
-import './FloorPlans.css';
-
 import FloorPlansContainer from "./FloorPlansContainer";
 import { QUERY_ROOM_COLLECTIONS_BY_NAME } from "../../../db/queries/Queries";
 

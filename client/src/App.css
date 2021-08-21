@@ -1,16 +1,16 @@
 @font-face { 
 	font-family: Knockout; 
-	src: url('./font/KnockoutHTF29JuniorLiteweightRegular.otf') format("opentype"); 
+	src: url('./assets/font/KnockoutHTF29JuniorLiteweightRegular.otf') format("opentype"); 
 }
 
 @font-face {
 	font-family: Chronicle; 
-	src: url('./font/ChronicleDisp-Roman.otf') format("opentype"); 
+	src: url('./assets/font/ChronicleDisp-Roman.otf') format("opentype"); 
 }
 
 @font-face {
 	font-family:AvenirNext; 
-	src: url('./font/AvenirNextLTPro-Regular.otf') format("opentype"); 
+	src: url('./assets/font/AvenirNextLTPro-Regular.otf') format("opentype"); 
 }
 
 body {

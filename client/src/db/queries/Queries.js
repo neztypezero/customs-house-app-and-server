@@ -2,6 +2,19 @@ import {
   gql,
 } from "@apollo/client";
 
+const QUERY_GALLERY_BY_NAME = gql`
+query GalleryByName($name: String!) {
+  galleries: galleriesByName(name:$name) {
+    id,
+    name,
+    images {
+      src,
+      alt
+    }
+  }
+}
+`;
+
 const QUERY_ROOM_COLLECTIONS = gql`
 {
   roomCollections {
@@ -71,6 +84,7 @@ const QUERY_ROOMS_BY_SUITE_TYPE = gql`
 `;
 
 export {
+  QUERY_GALLERY_BY_NAME,
   QUERY_ROOM_COLLECTIONS,
   QUERY_ROOM_COLLECTIONS_BY_NAME,
   QUERY_ROOMS_BY_SUITE_TYPE,

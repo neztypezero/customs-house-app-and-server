@@ -31,19 +31,19 @@
 }
 
 .large-gallery-button.building {
-	background-image: url('../../../img/backgrounds/SC1Buttons_1.jpg');
+	background-image: url('../../../assets/img/backgrounds/SC1Buttons_1.jpg');
 }
 
 .large-gallery-button.suite {
-	background-image: url('../../../img/backgrounds/SC1Buttons_2.jpg');
+	background-image: url('../../../assets/img/backgrounds/SC1Buttons_2.jpg');
 }
 
 .large-gallery-button.history {
-	background-image: url('../../../img/backgrounds/SC1Buttons_3.jpg');
+	background-image: url('../../../assets/img/backgrounds/SC1Buttons_3.jpg');
 }
 
 .large-gallery-button.movie {
-	background-image: url('../../../img/backgrounds/SC1Buttons_4.jpg');
+	background-image: url('../../../assets/img/backgrounds/SC1Buttons_4.jpg');
 }
 
 .large-gallery-button > label {

@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import { CSSTransition } from "react-transition-group";
 
-import './SlideShow.css';
-
 function SlideShow(props) {
 	React.useEffect(() => {
 		const handleInput = (keyboardEvent) => {

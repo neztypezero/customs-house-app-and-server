@@ -1,7 +1,5 @@
 import { Link } from 'react-router-dom';
 
-import './Gallery.css';
-
 function GalleryMainScreen() {
 	return (
 		<>

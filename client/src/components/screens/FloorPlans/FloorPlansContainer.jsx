@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import { CSSTransition } from "react-transition-group";
 import { useQuery } from "@apollo/client";
 
+let ctx = require.context('../../../assets/img/floorplans', true);
+
 function FloorPlansContainer(props) {
 	const [levels, setLevels] = useState(null);
 	const [startTransition, setStartTransition] = useState(false);
@@ -37,8 +39,6 @@ function FloorPlansContainer(props) {
 	if (error) return <div>error</div>;
 	if (!levels) return <div></div>;
 
-/*
-*/
 	return (
 		<CSSTransition in={startTransition} timeout={500} classNames="floor-plan-change" 
 		onEntered={() => {
@@ -102,7 +102,7 @@ function FloorPlansContainer(props) {
 				<div className="room-floor-plan-container">
 					{levels.map((level, i) => {
 						return level.floorPlans.map((floorPlan, j) => (
-							<img key={'img-'+floorPlan.id} data-img-index={j} data-current={floorPlan.id===currentFloorPlanId} data-next={floorPlan.id===nextFloorPlanId} src={"/img/floor-plans/"+floorPlan.img} alt="floorPlan" />
+							<img key={'img-'+floorPlan.id} data-img-index={j} data-current={floorPlan.id===currentFloorPlanId} data-next={floorPlan.id===nextFloorPlanId} src={ctx('./'+floorPlan.img).default} alt="floorPlan" />
 						))
 					})}
 				</div>

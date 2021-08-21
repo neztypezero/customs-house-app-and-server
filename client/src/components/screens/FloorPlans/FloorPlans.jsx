@@ -1,9 +1,9 @@
+import './FloorPlans.css';
+
 import { Route, Switch, withRouter } from 'react-router-dom';
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 
 import FloorPlansMainScreen from "./FloorPlansMainScreen";
-
-import './FloorPlans.css';
 
 import {floorPlanRoutes} from "../../screens/ScreenRoutes";
 

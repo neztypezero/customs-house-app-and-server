@@ -10,7 +10,7 @@
 	width:100%;
 	height:25%;
 	position: absolute;
-	background-image: url('../../../img/backgrounds/CH_UIBG_TILE.jpg');
+	background-image: url('../../../assets/img/backgrounds/CH_UIBG_TILE.jpg');
 	background-size:2% auto;
 	background-position:bottom;
 	-webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 100%);

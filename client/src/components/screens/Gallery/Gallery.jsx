@@ -1,11 +1,12 @@
+import './Gallery.css';
+import '../../SlideShow/SlideShow.css';
+
 import { Route, Switch, withRouter } from 'react-router-dom';
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 
 import GalleryMainScreen from "./GalleryMainScreen";
 
-import './Gallery.css';
-
-import {galleryRoutes} from "../../screens/ScreenRoutes";
+import { galleryRoutes } from "../../screens/ScreenRoutes";
 
 const AnimatedScreenSwitch = withRouter(({ location }) => (
 	<TransitionGroup>

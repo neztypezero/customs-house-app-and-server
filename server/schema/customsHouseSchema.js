@@ -10,7 +10,40 @@ const {
 	GraphQLNonNull,
 } = graphql;
 
-const RoomCount = require("../models/roomCount");
+const Gallery = require("../models/Gallery");
+
+const GalleryType = new GraphQLObjectType({
+	name:'Gallery',
+	fields: () => ({
+		id: { type: GraphQLID },
+		name: { type: GraphQLString },
+		images: { 
+			type: new GraphQLList(GalleryImageType),
+			resolve(parent, args) {
+				return GalleryImage.find({galleryId:parent.id});
+			},
+		},
+	})
+});
+
+const GalleryImage = require("../models/GalleryImage");
+
+const GalleryImageType = new GraphQLObjectType({
+	name:'GalleryImage',
+	fields: () => ({
+		id: { type: GraphQLID },
+		src: { type: GraphQLString },
+		alt: { type: GraphQLString },
+		gallery: { 
+			type: GalleryType,
+			resolve(parent, args) {
+				return Gallery.findById(parent.galleryId);
+			},
+		},
+	})
+});
+
+const RoomCount = require("../models/RoomCount");
 
 const RoomCountType = new GraphQLObjectType({
 	name:'RoomCount',
@@ -26,7 +59,7 @@ const RoomCountType = new GraphQLObjectType({
 	})
 });
 
-const RoomCollectionLevel = require("../models/roomCollectionLevel");
+const RoomCollectionLevel = require("../models/RoomCollectionLevel");
 
 const RoomCollectionLevelType = new GraphQLObjectType({
 	name:'RoomCollectionLevel',
@@ -46,7 +79,7 @@ const RoomCollectionLevelType = new GraphQLObjectType({
 	})
 });
 
-const RoomCollection = require("../models/roomCollection");
+const RoomCollection = require("../models/RoomCollection");
 
 const RoomCollectionType = new GraphQLObjectType({
 	name:'RoomCollection',
@@ -62,7 +95,7 @@ const RoomCollectionType = new GraphQLObjectType({
 	})
 });
 
-const FloorPlan = require("../models/floorPlan");
+const FloorPlan = require("../models/FloorPlan");
 
 const FloorPlanType = new GraphQLObjectType({
 	name:'FloorPlan',
@@ -88,6 +121,20 @@ const FloorPlanType = new GraphQLObjectType({
 const RootQuery = new GraphQLObjectType({
 	name: "RootQueryType",
 	fields: () => ({
+		galleries: {
+			type: GraphQLList(GalleryType),
+			resolve(parent, args) {
+				return Gallery.find({});
+			}
+		},
+		galleriesByName: {
+			type: GraphQLList(GalleryType),
+			args: {name:{type:GraphQLString}},
+			resolve(parent, args) {
+				console.log(args.name);
+				return Gallery.find({name:args.name});
+			}
+		},
 		roomCollections: {
 			type: new GraphQLList(RoomCollectionType),
 			resolve(parent, args) {
@@ -127,6 +174,34 @@ const RootQuery = new GraphQLObjectType({
 const Mutation = new GraphQLObjectType({
 	name: "Mutation",
 	fields: () => ({
+		addGallery: { 
+			type: GalleryType,
+			args: {
+				name:{type:new GraphQLNonNull(GraphQLString)},
+			},
+			resolve(parent, args) {
+				let gallery = new Gallery({
+					name: args.name,
+				});
+				return gallery.save();
+			}
+		},
+		addGalleryImage: { 
+			type: GalleryImageType,
+			args: {
+				src:{type:new GraphQLNonNull(GraphQLString)},
+				alt:{type:new GraphQLNonNull(GraphQLString)},
+				galleryId:{type:new GraphQLNonNull(GraphQLID)},
+			},
+			resolve(parent, args) {
+				let galleryImage = new GalleryImage({
+					src: args.src,
+					alt: args.alt,
+					galleryId: args.galleryId,
+				});
+				return galleryImage.save();
+			}
+		},
 		addRoomCollectionLevel: { 
 			type: RoomCollectionLevelType,
 			args: {
@@ -197,25 +272,131 @@ const Mutation = new GraphQLObjectType({
 });
 
 /*
-{
-  roomCollections {
-    id
-    name
-    levels {
-      id
-      level
-      floorPlans {
-        id
-        name
-        img
-        roomDescription
-        isPremium
-        roomCount
-        size
-        unit
-        level
-      }
-    }
+mutation {
+  addGalleryImage(src:"building_gallery1.jpg", alt:"View of Customs House render from Government and Wharf at night with people walking.", galleryId:"61211d0b022e338569cec120") {
+    id,
+    src,
+    alt
+  }
+}
+
+mutation {
+  addGalleryImage(src:"building_gallery2.jpg", alt:"View from above Customs House looking towards litup Parliament buildings at night.", galleryId:"61211d0b022e338569cec120") {
+    id,
+    src,
+    alt
+  }
+}
+
+mutation {
+  addGalleryImage(src:"building_gallery3.jpg", alt:"View of Customs House render from Government and Wharf at day with pedestrians and cyclists crossing road.", galleryId:"61211d0b022e338569cec120") {
+    id,
+    src,
+    alt
+  }
+}
+
+mutation {
+  addGalleryImage(src:"interiors_Gallery1.jpg", alt:"interior shot 1.", galleryId:"61211d17022e338569cec122") {
+    id,
+    src,
+    alt
+  }
+}
+
+mutation {
+  addGalleryImage(src:"interiors_Gallery2.jpg", alt:"interior shot 2.", galleryId:"61211d17022e338569cec122") {
+    id,
+    src,
+    alt
+  }
+}
+
+mutation {
+  addGalleryImage(src:"interiors_Gallery3.jpg", alt:"interior shot 3.", galleryId:"61211d17022e338569cec122") {
+    id,
+    src,
+    alt
+  }
+}
+
+mutation {
+  addGalleryImage(src:"interiors_Gallery4.jpg", alt:"interior shot 4.", galleryId:"61211d17022e338569cec122") {
+    id,
+    src,
+    alt
+  }
+}
+
+mutation {
+  addGalleryImage(src:"interiors_Gallery5.jpg", alt:"interior shot 5.", galleryId:"61211d17022e338569cec122") {
+    id,
+    src,
+    alt
+  }
+}
+
+mutation {
+  addGalleryImage(src:"interiors_Gallery6.jpg", alt:"interior shot 6.", galleryId:"61211d17022e338569cec122") {
+    id,
+    src,
+    alt
+  }
+}
+
+mutation {
+  addGalleryImage(src:"interiors_Gallery7.jpg", alt:"interior shot 7.", galleryId:"61211d17022e338569cec122") {
+    id,
+    src,
+    alt
+  }
+}
+
+mutation {
+  addGalleryImage(src:"interiors_Gallery8.jpg", alt:"interior shot 8.", galleryId:"61211d17022e338569cec122") {
+    id,
+    src,
+    alt
+  }
+}
+
+mutation {
+  addGalleryImage(src:"interiors_Gallery9.jpg", alt:"interior shot 9.", galleryId:"61211d17022e338569cec122") {
+    id,
+    src,
+    alt
+  }
+}
+
+mutation {
+  addGalleryImage(src:"heritageGallery1.jpg", alt:"Construction taking place in 1914.", galleryId:"61211d22022e338569cec124") {
+    id,
+    src,
+    alt
+  }
+}
+
+mutation {
+  addGalleryImage(src:"heritageGallery2.jpg", alt:"large gathering of people in early 1900's inner harbour Victoria with Customs House in the background.", galleryId:"61211d22022e338569cec124") {
+    id,
+    src,
+    alt
+  }
+}
+
+mutation {
+  addGalleryImage(src:"heritageGallery3.jpg", alt:"5 early slides of the Customs House", galleryId:"61211d22022e338569cec124") {
+    id,
+    src,
+    alt
+  }
+}
+
+mutation {
+  addGalleryImage(src:"heritageGallery4.jpg", alt:"2 early slides of the Customs House", galleryId:"61211d22022e338569cec124") {
+    id,
+    src,
+    alt
   }
 }
 

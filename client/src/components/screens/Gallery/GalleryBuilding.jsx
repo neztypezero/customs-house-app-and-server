@@ -1,14 +1,11 @@
-import SlideShow from "../SlideShow/SlideShow";
+import GalleryContainer from "./GalleryContainer";
+import { QUERY_GALLERY_BY_NAME } from "../../../db/queries/Queries";
 
-import './Gallery.css';
+const galleryName = "Building";
 
 function GalleryBuilding() {
 	return (
-		<SlideShow>
-			<img src="/img/gallery/building_gallery1.jpg" alt="View of Customs House render from Government and Wharf at night with people walking." />
-			<img src="/img/gallery/building_gallery2.jpg" alt="View of Customs House render from harbour looking towards lit up Parliament building at night."  />
-			<img src="/img/gallery/building_gallery3.jpg" alt="View of Customs House render from Government and Wharf at day time with people walking and biking."  />
-		</SlideShow>
+		<GalleryContainer query={QUERY_GALLERY_BY_NAME} variables={{name:galleryName}} />
 	);
 }
 
