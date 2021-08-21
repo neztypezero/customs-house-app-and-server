@@ -131,7 +131,6 @@ const RootQuery = new GraphQLObjectType({
 			type: GraphQLList(GalleryType),
 			args: {name:{type:GraphQLString}},
 			resolve(parent, args) {
-				console.log(args.name);
 				return Gallery.find({name:args.name});
 			}
 		},
